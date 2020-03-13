@@ -222,9 +222,8 @@ static NSString *const kSecondLongAction = @"Second Long Long Action";
 
   // Then
   // Ensure snapshot view size matches actual runtime size of alert
-  CGSize preferredContentSize = self.alertController.preferredContentSize;
   MDCAlertControllerView *alertView = (MDCAlertControllerView *)self.alertController.view;
-  CGSize bounds = [alertView calculatePreferredContentSizeForBounds:preferredContentSize];
+  CGSize bounds = [alertView calculatePreferredContentSizeForBounds:CGRectInfinite.size];
   self.alertController.view.bounds = CGRectMake(0.f, 0.f, bounds.width, bounds.height);
   [self generateSnapshotAndVerifyForView:self.alertController.view];
 }
